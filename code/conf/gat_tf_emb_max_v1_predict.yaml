@@ -1,0 +1,124 @@
+hydra:
+  run:
+    dir: ./
+
+data_dir: /
+
+#train_file: ${data_dir}/train.json
+#val_file: ${data_dir}/val.json
+test_file: ${data_dir}/test.json
+
+embedding_memory:
+  _target_: data_loader.data_utils.EmbeddingMatrix
+  attr_text: ${data_dir}/attribute_emb_weight.pt
+  item_text: ${data_dir}/item_text_emb_weight.cls.pt
+  item_image: ${data_dir}/item_img.pt
+
+dataset:
+  _target_: data_loader.data_loader_v1_predict.SubgraphDataset
+#  train_subgraph_dir: ${data_dir}/train_down_find
+#  val_subgraph_dir: ${data_dir}/val_down_find
+  test_subgraph_dir: ${data_dir}/test_down_find
+
+# Data collator
+collator:
+  _target_: data_loader.data_collator_fix_emb_predict.SubgraphCollatorVocab
+  user_vocab: ${data_dir}/user_vocab.json
+  outfit_vocab: ${data_dir}/outfit_vocab.json
+  attr_vocab: ${data_dir}/attribute_vocab.json
+  item_vocab: ${data_dir}/item_vocab.json
+  node_vocab: ${data_dir}/vocab.pt
+  img2path: ${data_dir}/img2path.json
+  uo_edge: ${data_dir}/UO_550.json
+  oi_edge: ${data_dir}/OI_550.json
+  ia_edge: ${data_dir}/IA_550.json
+
+# Dataloader
+num_workers: 30
+eval_num_workers: 10
+prefetch_factor: 2
+
+# Model
+model:
+  _target_: models.gat_tf_emb_predict.GATTransformer
+  user_embedding: ${data_dir}/user_emb_weight.pt
+  outfit_embedding: ${data_dir}/outfit_emb_weight.pt
+  user_vocab: ${collator.user_vocab}
+  outfit_vocab: ${collator.outfit_vocab}
+  freeze_user_emb: False
+  freeze_outfit_emb: False
+  vision_model: resnet34
+  text_hidden_size: 768
+  img_hidden_size: 512
+  hidden_size: 512
+  regulation_rate: 0.04
+  hash_hidden_size: 512
+  margin: 0.1
+  tanh_k: 0.5
+  gnn:
+    _target_: models.gat.GAT
+    num_layers: 4
+    input_size: ${model.hidden_size}
+    num_heads: 8
+    head_size: 64
+    feat_dropout: 0.1
+    attn_dropout: 0.1
+    residual: True
+
+
+pretrain:
+
+output_dir: experiments/
+
+do_train: True
+evaluate_during_training: False
+
+do_eval: True
+eval_sub_path:
+
+# Training hyper-parameters
+per_gpu_train_batch_size: 4
+per_gpu_eval_batch_size: 2
+learning_rate: 5e-5
+gradient_accumulation_steps: 32
+weight_decay: 0.1
+adam_epsilon: 1e-6
+adam_betas: "(0.9, 0.98)"
+max_grad_norm: 0.0
+num_train_epochs: 30
+max_steps: 0
+warmup_proportion: 0.06
+warmup_steps:
+multi_tensor:
+
+# Prediction config
+prediction_cfg:
+  metric: "auc"
+  measure: 1
+  best_checkpoint:
+  best_result:
+
+logging_steps: 5
+summary_helper:
+  _target_: general_util.training_utils.SummaryWriterHelper
+
+save_steps: 200
+save_best: True
+eval_steps: 100
+no_cuda: False
+seed: 42
+local_rank: -1
+fp16: True
+fp16_opt_level: O1
+
+reshard_after_forward: False
+cpu_offload: False
+move_grads_to_cpu: False
+move_params_to_cpu: False
+
+# Temporary variables
+n_gpu:
+device:
+train_batch_size:
+eval_batch_size:
+world_size:
