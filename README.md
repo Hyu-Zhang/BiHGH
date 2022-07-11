@@ -25,13 +25,13 @@ We provide all data files used in the `/data` folder, including edge files and n
 
 Before start, the configuration file `conf/gat_tf_emb_max_v1.yaml` is supposed to be modified first.
 
-## Train
+### Train
 
     CUDA_VISIBLE_DEVICES=[gpu_id] python trainer.py
     
 
 After the training is completed, the model file, configuration file and tensorboard log file will be saved to the `/experiments` folder.
-## Test
+### Test
 
 Then, you can read the saved model for testing with the following command.
 
