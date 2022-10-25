@@ -46,7 +46,7 @@ Any question please contact me by email: zhang.hy.2019@gmail.com
 If this work is helpful, please cite it:
 
 > @inproceedings{10.1145/3503161.3548020,
-author = {Guan, Weili and Song, Xuemeng and Zhang, Haoyu and Liu, Meng and Yeh, Chung-Hsing and Chang, Xiaojun},
+> author = {Guan, Weili and Song, Xuemeng and Zhang, Haoyu and Liu, Meng and Yeh, Chung-Hsing and Chang, Xiaojun},
 title = {Bi-Directional Heterogeneous Graph Hashing towards Efficient Outfit Recommendation},
 year = {2022},
 publisher = {Association for Computing Machinery},
