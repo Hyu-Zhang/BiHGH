@@ -10,7 +10,16 @@ Official Implementation of "Bi-directional Heterogeneous Graph Hashing towards E
 
 ## Data Preparation
 
-We provide all data files used in the `/data` folder, including edge files and node initialization features used to build the graph. At the same time, we provide the data preprocessing code to obtain these data files, see the `/preprocess` folder.
+We have provided the data files used in the `/data` folder, including edge files and node initialization features used to build the graph.
+
+Edge files: <a href="https://www.aliyundrive.com/s/femNUcj68Vp">[download]</a>
+Train/Val/Test files: <a href="https://www.aliyundrive.com/s/femNUcj68Vp">[download]</a>
+Vocab files: <a href="https://www.aliyundrive.com/s/femNUcj68Vp">[download]</a>
+Embedding files: <a href="https://www.aliyundrive.com/s/femNUcj68Vp">[download]</a>
+img2path.json: <a href="https://www.aliyundrive.com/s/femNUcj68Vp">[download]</a>
+
+At the same time, you can filter the open-source dataset IQON-3000 according to the experimental details in the paper, see this <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Lu_Personalized_Outfit_Recommendation_With_Learnable_Anchors_CVPR_2021_paper.pdf">link</a>. And the filter code we used can be found at the <a href="https://github.com/lzcn/outfit-datasets/tree/fa2c0bf1df1c28d8157e8bb0cd6679480c8541e2/iqon-3000">link</a>.
+After obtaining the IQON-550 dataset, we also provided the data preprocessing code to obtain these data files, see the `/preprocess` folder.
 
 ## Environment
    python 3.9.0
