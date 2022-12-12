@@ -13,10 +13,10 @@ Official Implementation of "Bi-directional Heterogeneous Graph Hashing towards E
 We have provided the data files used in the `/data` folder, including edge files and node initialization features used to build the graph.
 
 >Edge files: <a href="https://drive.google.com/drive/folders/1suOOfRLZ5sQRUw0lDDJ-ASHXsI8nBY6Z?usp=sharing">[download]</a> <br/>
->Train/Val/Test files: <a href="https://drive.google.com/drive/folders/1a0mHF9lo3pClT2q2aZC_8cjekEleWyGz?usp=share_link">[download]</a> <br/>
->Vocab files: <a href="https://drive.google.com/drive/folders/1jmjW3tKMIbmdckl5UvEdHWYdjjKazzni?usp=share_link">[download]</a> <br/>
->Embedding files: <a href="https://drive.google.com/drive/folders/1NX-8uOLYWXOVGVsIEf7yP8309APJWOxa?usp=share_link">[download]</a> <br/>
->img2path.json: <a href="https://drive.google.com/file/d/1Gb_MWdbThHgijcj6giGTmpqC823tr9Fn/view?usp=share_link">[download]</a> <br/>
+>Train/Val/Test files: <a href="https://drive.google.com/drive/folders/1a0mHF9lo3pClT2q2aZC_8cjekEleWyGz?usp=sharing">[download]</a> <br/>
+>Vocab files: <a href="https://drive.google.com/drive/folders/1jmjW3tKMIbmdckl5UvEdHWYdjjKazzni?usp=sharing">[download]</a> <br/>
+>Embedding files: <a href="https://drive.google.com/drive/folders/1NX-8uOLYWXOVGVsIEf7yP8309APJWOxa?usp=sharing">[download]</a> <br/>
+>img2path.json: <a href="https://drive.google.com/file/d/1Gb_MWdbThHgijcj6giGTmpqC823tr9Fn/view?usp=sharing">[download]</a> <br/>
 
 In addition, you also can filter the open-source dataset IQON-3000 according to the experimental details in the paper, see this <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Lu_Personalized_Outfit_Recommendation_With_Learnable_Anchors_CVPR_2021_paper.pdf">link</a>. And the filter code we used can be found at the <a href="https://github.com/lzcn/outfit-datasets/tree/fa2c0bf1df1c28d8157e8bb0cd6679480c8541e2/iqon-3000">link</a>.
 After obtaining the IQON-550 dataset, we provided the data preprocessing code to obtain the above data files, see the `/preprocess` folder.
